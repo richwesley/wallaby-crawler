@@ -1,0 +1,34 @@
+body{
+	border:solid 1px blue;
+	height:auto;
+}
+
+.container{
+	border:solid 1px red;
+	background-image:url("assets/Css/images/ny.jpg");
+}
+
+.page-header{
+	
+}
+
+form{
+	text-align: center;
+}
+
+.jumbotron{
+	margin: 0 auto;
+	width:80%;
+}
+
+#map{
+	  height: 50%;
+    width: 50%;
+    min-height: 313px;
+    min-width: 605px;
+    margin-left: 36px;
+    margin-top: 20px;
+    margin-bottom: 21px;
+    border-radius: 6px;
+    opacity: 1;
+   }

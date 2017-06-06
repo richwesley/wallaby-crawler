@@ -17,14 +17,20 @@
 
     <div class="container myContainer">
         <div class="page-header">
-        <img src="assets/wally_icon.png" class="wallyStyle">
+        <img src="assets/images/wally_icon.png" class="wallyStyle">
             <h1> Beer Crawler <small></small></h1>
+        </div>
+
+        <div>                        
+            <label>Enter location city :</label>
+            <input id="searchItem" class="yourInput">
+            <button id="goBtn" class="goBtn">Go</button>
         </div>
 
         <div class="row">
             <div class="col-xs-4" id="inputDiv">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <video autoplay loop class="embed-responsive-item" src="assets/beerPour.mp4"></video>
+                    <video autoplay loop class="embed-responsive-item" src="assets/images/beerPour.mp4"></video>
                 </div>
                 
               
@@ -36,44 +42,10 @@
          <div class="col-xs-4" id="photo"></div> 
       </div>
 
-      
-
-
-
-
-
-
-
-
-
-
-
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="jumbotron myJumbotron">
-                    <div>
-                        <h1>Beer Crawler</h1>
-                        <label>Enter location city :</label>
-                        <input id="searchItem" class="yourBtn">
-                        <button id="goBtn" class="goBtn">Go</button>
-                        <button id="resizeBtn" class="goBtn">ReSize</button>
-                    </div>
-                    <div id="myButtons"></div>
-                </div>
-            </div>
-        </div>
         <div class="row">
             <div class="col-xs-3">
-                <!-- <div id="allImages"></div> -->
-                <div id="myObject" class="noFloat theObject"></div>
+                <div id="cardObject"></div>
             </div>
-
-
-            <div class="col-xs-7 col-xs-offset-2" id="map">
-            
-                
-
-
 
         </div>
     </div>
@@ -86,8 +58,8 @@
 <script type="text/javascript" src="assets/Javascript/script.js"></script>
 <script src="assets/Javascript/aos.js"></script>
 <script src="assets/javascript/pubScript.js"></script>
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpzcx4xPG0GtyMrFs83Mxa0Vm0V4TCyKo&libraries=places&callback=initMap" async defer></script>
-<script> -->
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpzcx4xPG0GtyMrFs83Mxa0Vm0V4TCyKo&libraries=places&callback=initMap" async defer></script> -->
+<script> 
 
 
 AOS.init({

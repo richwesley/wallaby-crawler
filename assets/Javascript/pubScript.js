@@ -76,7 +76,38 @@ function initMap() {
 function createCard(result) {
  var cardDiv = $("<div></div>"); 
 
-    var infoDiv = $("<div class='cardStyle'>" + result.name + "</div>");
+    var infoDiv = $("<div class='cardStyle'></div>");
+
+
+    // add results info 
+    var nameDiv = $("<div>" + result.name + "</div>");
+    var vicinityDiv = $("<div>" + result.vicinity + "</div>");
+    var ratingDiv = $("<div>" + result.rating + "</div>");
+
+
+    console.log(result);
+console.log(result.photos[0].getUrl({maxWidth: 100, maxHeight: 100}));
+
+    var photoUrl = result.photos[0].getUrl({maxWidth: 100, maxHeight: 100});
+
+
+
+    var photosDiv = $("<div><img src=" + photoUrl + "></div>");
+
+
+
+    infoDiv.append(nameDiv);
+    infoDiv.append(vicinityDiv);
+    infoDiv.append(ratingDiv);
+    infoDiv.append(photosDiv);
+
+
+
+
+
+
+
+
 
     var actionInner = $("<div></div>");
                 actionInner.addClass("aos-item__inner");
@@ -98,6 +129,11 @@ function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
         	var currentResult = results[i];
+
+
+        		// console.log(results[0].photos[0].getUrl({maxWidth: 400, maxHeight: 400}));
+        		// console.log(results[i]);
+
             	createMarker(results[i]);
             	createCard(currentResult);
         }

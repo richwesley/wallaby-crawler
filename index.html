@@ -1,0 +1,70 @@
+<!-- GIPHY Homework -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Beer Crawler</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <link rel="stylesheet" href="assets/Css/mapStyle.css">
+    <link rel="stylesheet" type="text/css" href="assets/Css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/Css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Alex+Brush|Ravi+Prakash|Calligraffitti|Droid+Sans|Macondo" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="assets/Css/aos.css" />
+</head>
+
+<body>
+
+    <div class="container myContainer">
+        <div class="page-header">
+         
+            <h1> Beer Crawler <small></small></h1>
+        </div>
+
+        <div>                        
+            <label>Enter location city :</label>
+            <input id="searchItem" class="yourInput">
+            <button id="goBtn" class="goBtn">Go</button>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4" id="inputDiv">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <video autoplay loop class="embed-responsive-item" src="assets/images/beerPour.mp4"></video>
+                </div>
+                
+              
+                <br>
+            </div>            
+            <div class="col-xs-8" id="map"></div>
+        </div>
+      <div class="row">
+         <div class="col-xs-4" id="photo"></div> 
+      </div>
+
+        <div class="row">
+            <div class="col-xs-3">
+                <div id="cardObject"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHB_29w-sW3VDI_i41S9D7EbeXrKbpT4Q&callback=initMap&libraries=places"
+    async defer></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="assets/Javascript/script.js"></script>
+<script src="assets/Javascript/aos.js"></script>
+<script src="assets/javascript/pubScript.js"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpzcx4xPG0GtyMrFs83Mxa0Vm0V4TCyKo&libraries=places&callback=initMap" async defer></script> -->
+<script> 
+
+
+AOS.init({
+    easing: 'ease-in-out-sine'
+});
+</script>
+
+</html>

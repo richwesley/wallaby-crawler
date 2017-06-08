@@ -1,66 +1,77 @@
 @charset "utf-8";
+
 /* CSS Document */
- #map {
-	height: 50%;
-	width: 50%;
-	min-height: 313px;
-	min-width: 605px;
-	margin-left: 36px;
-	margin-top: 20px;
-	margin-bottom: 21px;
-	border-radius: 6px;
-	opacity: 1;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      .controls {
-	background-color: #fff;
-	border-radius: 2px;
-	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-	box-sizing: border-box;
-	font-family: Roboto;
-	font-size: 15px;
-	font-weight: 300;
-	height: 29px;
-	margin-left: 17px;
-	margin-top: 10px;
-	outline: none;
-	padding: 0 11px 0 13px;
-	text-overflow: ellipsis;
-	width: 400px;
-      }
+
+#map {
+    height: 50%;
+    width: 50%;
+    min-height: 313px;
+    min-width: 605px;
+    margin-left: 36px;
+    margin-top: 20px;
+    margin-bottom: 21px;
+    border-radius: 6px;
+    opacity: 1;
+}
+
+
+/* Optional: Makes the sample page fill the window. */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.controls {
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    height: 29px;
+    margin-left: 17px;
+    margin-top: 10px;
+    outline: none;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+}
+
 #chooseCrawlSpace {
-	border-width: 6px;
-	min-width: 362px;
-	margin-top: 60px;
-	min-height: 50px;
-	text-align: left;
-	opacity: 0.8;
+    border-width: 6px;
+    min-width: 362px;
+    margin-top: 60px;
+    min-height: 50px;
+    text-align: left;
+    opacity: 0.8;
 }
 
+.controls:focus {
+    border-color: #4d90fe;
+}
 
-      .controls:focus {
-        border-color: #4d90fe;
-      }
-      .title {
-        font-weight: bold;
-      }
-      #infowindow-content {
-        display: none;
-      }
-      #map #infowindow-content {
-	display: block;
-      }
+.title {
+    font-weight: bold;
+}
+
+#infowindow-content {
+    display: none;
+}
+
+#map #infowindow-content {
+    display: block;
+}
+
 #inputDiv {
-	margin-top: 20px;
-
+    margin-top: 20px;
 }
+
 #wrapper {
-	background-image: url(images/copperkeg.jpg);
-	margin-top: 19px;
-	min-height: 625px;
+    background-image: url(images/copperkeg.jpg);
+    margin-top: 19px;
+    min-height: 625px;
 }

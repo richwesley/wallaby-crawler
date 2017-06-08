@@ -14,57 +14,46 @@
 </head>
 
 <body>
-
     <div class="container myContainer">
-        <div class="page-header">
-         
+        <div id="mainHeader" class="page-header myHeader">
             <h1> Beer Crawler <small></small></h1>
+            <div id="crawlLocation"></div>
+            <div id="weather"></div>
         </div>
-
-        <div>                        
+        <div>
             <label>Enter location city :</label>
             <input id="searchItem" class="yourInput">
             <button id="goBtn" class="goBtn">Go</button>
         </div>
-
         <div class="row">
             <div class="col-xs-4" id="inputDiv">
                 <div class="embed-responsive embed-responsive-16by9">
                     <video autoplay loop class="embed-responsive-item" src="assets/images/beerPour.mp4"></video>
                     <audio autoplay>
-				  		<source src="assets/images/beer-pour.mp3">
+                        <source src="assets/images/beer-pour.mp3">
                     </audio>
                 </div>
-                
-              
                 <br>
-            </div>            
+            </div>
             <div class="col-xs-8" id="map"></div>
         </div>
-      <div class="row">
-         <div class="col-xs-4" id="photo"></div> 
-      </div>
-
+        <div class="row">
+            <div class="col-xs-4" id="photo"></div>
+        </div>
         <div class="row">
             <div class="col-xs-3">
                 <div id="cardObject"></div>
             </div>
-
         </div>
     </div>
-
-
 </body>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHB_29w-sW3VDI_i41S9D7EbeXrKbpT4Q&callback=initMap&libraries=places"
-    async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHB_29w-sW3VDI_i41S9D7EbeXrKbpT4Q&callback=initMap&libraries=places" async defer></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="assets/Javascript/script.js"></script>
 <script src="assets/Javascript/aos.js"></script>
 <script src="assets/Javascript/pubScript.js"></script>
-
-<script> 
-
-
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+<script>
 AOS.init({
     easing: 'ease-in-out-sine'
 });

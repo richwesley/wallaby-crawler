@@ -4,10 +4,31 @@ var infowindowContent;
 
 
 function initMap() {
+    var  mapstyle = new google.maps.StyledMapType (	
+	[
+  {
+    "featureType": "road",
+    "stylers": [{"color": "#96e6ed"}]
+  },
+  {
+    "featureType": "water",
+    "stylers": [{"color": "#febf00"}]    
+  }
+  ],
+  {name: 'Beer Map'}
+);
+	
+	
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 37, lng: -98 },
-        zoom: 4,
-    });
+        zoom: 3,
+		mapTypeControlOptions: {
+            mapTypeIds: ['brewStyle']
+		}
+    }); // set the inital map.  See css for styling
+	
+	map.mapTypes.set('brewStyle', mapstyle);
+        map.setMapTypeId('brewStyle');
 
     input = document.getElementById('searchItem');
 

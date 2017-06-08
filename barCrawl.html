@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Bar Crawl Map</title>
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="mapStyle.css" rel="stylesheet" type="text/css">
+		
+	</head>
+
+	<body>
+		<div class="container" id ="wrapper">
+			<div class="row">
+			  <div class="col-md-4" id="inputDiv">
+		  	  
+			 
+			  	<div class="embed-responsive embed-responsive-16by9">
+			  	  <video autoplay loop class="embed-responsive-item" src="images/B-Roll Beer Pour.mp4"></video>
+		  	    </div>
+            	
+             	<input type="text" id="chooseCrawlSpace" placeholder="Where would you like to crawl?"><br>
+             	
+				  
+              </div>
+			 
+			  <div  class="col-md-8" id="map">
+			  	
+			  </div>
+		  </div>
+		  
+	     
+		      </div>
+		      
+	     
+
+  		
+  		
+   		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpzcx4xPG0GtyMrFs83Mxa0Vm0V4TCyKo&libraries=places&callback=initMap"
+				async defer></script>
+ 		<script src="mapScript.js"></script>   
+   	
+</body>
+</html>

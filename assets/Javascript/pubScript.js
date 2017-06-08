@@ -73,32 +73,108 @@ function initMap() {
   });
 }
 
+function createCard(result) {
+ var cardDiv = $("<div></div>"); 
+
+    var infoDiv = $("<div class='cardStyle'></div>");
+
+
+    // add results info 
+    var nameDiv = $("<div>" + result.name + "</div>");
+    var vicinityDiv = $("<div>" + result.vicinity + "</div>");
+    var ratingDiv = $("<div>" + result.rating + "</div>");
+
+
+    console.log(result);
+console.log(result.photos[0].getUrl({maxWidth: 100, maxHeight: 100}));
+
+    var photoUrl = result.photos[0].getUrl({maxWidth: 100, maxHeight: 100});
+
+
+
+    var photosDiv = $("<div><img src=" + photoUrl + "></div>");
+
+
+
+    infoDiv.append(nameDiv);
+    infoDiv.append(vicinityDiv);
+    infoDiv.append(ratingDiv);
+    infoDiv.append(photosDiv);
+
+
+
+
+
+
+
+
+
+    var actionInner = $("<div></div>");
+                actionInner.addClass("aos-item__inner");
+                actionInner.append(infoDiv);
+
+    var actionFrame = $("<div></div>");
+                actionFrame.addClass("aos-item");
+
+    actionFrame.attr("data-aos", "zoom-in-down");
+                actionFrame.append(actionInner);
+
+                cardDiv.append(actionFrame);
+    $("#cardObject").append(cardDiv);
+
+};
+
+
 function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
+        	var currentResult = results[i];
+
+
+        		// console.log(results[0].photos[0].getUrl({maxWidth: 400, maxHeight: 400}));
+        		// console.log(results[i]);
+
             	createMarker(results[i]);
-            	console.log(results[i]); 
-				console.log(results[i]);
+            	createCard(currentResult);
         }
     }
 }
 	
 function createMarker(place) {
    var id = place.id;
-	console.log(id);
+	// console.log(id);
    var marker = place.location;
-   var image = 'images/beer.png'; 
-   marker = new google.maps.Marker({
+   // var image = '../wallaby-crawler/assets/images/lilBeer.png'; 
+  //  marker = new google.maps.Marker({
+  //       map: map,
+  //       position: place.geometry.location,
+		// icon: image,
+		// animation: google.maps.Animation.DROP,  
+  //       title: place.name        
+  //   });
+  marker = new google.maps.Marker({
         map: map,
         position: place.geometry.location,
-		icon: image,
+		 icon: {
+            size: new google.maps.Size(20, 20),
+            scaledSize: new google.maps.Size(20, 20),
+            url: "../wallaby-crawler/assets/images/lilBeer.png"
+          }, 
 		animation: google.maps.Animation.DROP,  
         title: place.name        
-    });	
+    });
 
     google.maps.event.addListener(marker, 'click', function() {
-        pubs.setContent(place.name);
+    	console.log(marker);
+
+    	if(!pubs) {console.log(pubs)};
+    	var pubs = new google.maps.InfoWindow();
+        // pubs.setContent(place.name);
+        pubs.setContent(this.title);
         pubs.open(map, this);
+        console.log(this);
+        if(!pubs) {console.log(pubs)};
+        console.log(pubs);
     });
 	
 	document.getElementById('#photo');

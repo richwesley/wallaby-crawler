@@ -12,7 +12,7 @@ function initMap() {
   },
   {
     "featureType": "water",
-    "stylers": [{"color": "#febf00"}]    
+    "stylers": [{"color": "#ffa300"}]    
   }
   ],
   {name: 'Beer Map'}
@@ -56,7 +56,7 @@ function initMap() {
 				return;
             	}
 		
-			map.setZoom(14);
+			map.setZoom(15);
 			map.setCenter(results[0].geometry.location);
 
 

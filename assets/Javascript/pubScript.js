@@ -3,6 +3,18 @@
 var infowindowContent;
 var searchArea;
 
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC7DimJBet8oIGYtumdS0ABdtUgE5QgFuU",
+    authDomain: "beercrawler-d3099.firebaseapp.com",
+    databaseURL: "https://beercrawler-d3099.firebaseio.com",
+    projectId: "beercrawler-d3099",
+    storageBucket: "beercrawler-d3099.appspot.com",
+    messagingSenderId: "763287984219"
+  };
+  firebase.initializeApp(config);
+var database = firebase.database();
+
 
 function initMap() {
     var  mapstyle = new google.maps.StyledMapType (	
@@ -96,22 +108,33 @@ function initMap() {
   });
 }
 
+
+function addFavoriteClick(event) {
+    var childName = $(this).find("div.nameClass").text();
+    var childArea = $(this).find("div.areaClass").text();
+    var childRating = $(this).find("div.ratingClass").text();
+
+    database.ref().push({
+            pubName: childName,
+            pubArea: childArea,
+            pubRating: childRating
+        });
+}
+
+
 function createCard(result) {
     var cardDiv = $("<div></div>");
-    var infoDiv = $("<div class='cardStyle'></div>");
-    //this is whats adding the buttons------------
-    var divButton = $("<button type='button' class='pubSelect'>Select</div>");
-    //----------------------------------------------------------------------
+    var infoDiv = $("<div class='cardStyle'></div>");   
 
     // add results info 
-    var nameDiv = $("<div>" + result.name + "</div>");
-    var vicinityDiv = $("<div>" + result.vicinity + "</div>");    
+    var nameDiv = $("<div class='nameClass'>" + result.name + "</div>");
+    var vicinityDiv = $("<div class='areaClass'>" + result.vicinity + "</div>");    
 
     infoDiv.append(nameDiv);
     infoDiv.append(vicinityDiv);
 
     if(result.rating){
-    	var ratingDiv = $("<div>" + result.rating + "</div>");
+    	var ratingDiv = $("<div class='ratingClass'>" + result.rating + "</div>");
     	infoDiv.append(ratingDiv);
     }    
 
@@ -123,8 +146,6 @@ function createCard(result) {
 
     var photosDiv = $("<div><img src=" + photoUrl + " style='max-width:150px;max-height:120px;'></div>");
     infoDiv.append(photosDiv);
-    //------this is where its being appended to the info div----
-    infoDiv.append(divButton);
 
     var actionInner = $("<div></div>");
     actionInner.addClass("aos-item__inner");
@@ -137,9 +158,8 @@ function createCard(result) {
     actionFrame.append(actionInner);
 
     cardDiv.append(actionFrame);
+    cardDiv.click(addFavoriteClick);
     $("#cardObject").append(cardDiv);
-
-    
 };
 
 
@@ -187,17 +207,3 @@ function createMarker(place) {
 	
 	document.getElementById('#photo');
 }
-
-
-//firebase initalizer-----
-// Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDLDShto0ddqJhmYC2uiQc3lhk0DFPII6k",
-    authDomain: "fir-1-1d2d8.firebaseapp.com",
-    databaseURL: "https://fir-1-1d2d8.firebaseio.com",
-    projectId: "fir-1-1d2d8",
-    storageBucket: "fir-1-1d2d8.appspot.com",
-    messagingSenderId: "860435933175"
-  };
-  firebase.initializeApp(config);
-//---end of firebase------

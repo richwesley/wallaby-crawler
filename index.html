@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="assets/Css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Alex+Brush|Ravi+Prakash|Calligraffitti|Droid+Sans|Macondo" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="assets/Css/aos.css" />
+   
 </head>
 
 <body>
@@ -23,7 +24,7 @@
         <div>
             <label>Enter location city :</label>
             <input id="searchItem" class="yourInput">
-            <button id="goBtn" class="goBtn">Go</button>
+            <!-- <button id="goBtn" class="goBtn">Go</button> -->
         </div>
         <div class="row">
             <div class="col-xs-4" id="inputDiv">
@@ -42,7 +43,12 @@
         </div>
         <div class="row">
             <div class="col-xs-3">
-                <div id="cardObject"></div>
+                <div id="cardObject">
+                    
+
+
+
+                </div>
             </div>
         </div>
     </div>
@@ -53,10 +59,12 @@
 <script src="assets/Javascript/aos.js"></script>
 <script src="assets/Javascript/pubScript.js"></script>
 <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
 <script>
 AOS.init({
     easing: 'ease-in-out-sine'
 });
 </script>
+
 
 </html>

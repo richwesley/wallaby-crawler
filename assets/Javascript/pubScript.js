@@ -99,6 +99,9 @@ function initMap() {
 function createCard(result) {
     var cardDiv = $("<div></div>");
     var infoDiv = $("<div class='cardStyle'></div>");
+    //this is whats adding the buttons------------
+    var divButton = $("<button type='button' class='pubSelect'>Select</div>");
+    //----------------------------------------------------------------------
 
     // add results info 
     var nameDiv = $("<div>" + result.name + "</div>");
@@ -120,6 +123,8 @@ function createCard(result) {
 
     var photosDiv = $("<div><img src=" + photoUrl + " style='max-width:150px;max-height:120px;'></div>");
     infoDiv.append(photosDiv);
+    //------this is where its being appended to the info div----
+    infoDiv.append(divButton);
 
     var actionInner = $("<div></div>");
     actionInner.addClass("aos-item__inner");
@@ -133,6 +138,8 @@ function createCard(result) {
 
     cardDiv.append(actionFrame);
     $("#cardObject").append(cardDiv);
+
+    
 };
 
 
@@ -181,3 +188,16 @@ function createMarker(place) {
 	document.getElementById('#photo');
 }
 
+
+//firebase initalizer-----
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDLDShto0ddqJhmYC2uiQc3lhk0DFPII6k",
+    authDomain: "fir-1-1d2d8.firebaseapp.com",
+    databaseURL: "https://fir-1-1d2d8.firebaseio.com",
+    projectId: "fir-1-1d2d8",
+    storageBucket: "fir-1-1d2d8.appspot.com",
+    messagingSenderId: "860435933175"
+  };
+  firebase.initializeApp(config);
+//---end of firebase------

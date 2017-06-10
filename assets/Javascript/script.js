@@ -1,29 +1,5 @@
 // Beer scripts.js
 
-
-function goBtnAction() {
-
-    var theGoBtn = $("#goBtn");
-    theGoBtn.on("click", function() {
-
-        var searchText = ($("#searchItem").val().trim());
-        // console.log(searchText);
-
-        if (searchText != "") {
-
-            $("#message").html("TIM BYNUM");
-
-            // makeGifs(searchText);
-        } else {
-            $("#message").html("NULL !!!!!!!");
-            console.log(searchText);
-        }
-    });
-}
-
-goBtnAction();
-
-
 // // ----------weather API call------------------------------------------------
 // // This is our API key. Add your own API key between the ""
 var APIKey = "26839131696992a3553a44f643a4f407";
@@ -33,7 +9,7 @@ function grabWeather(area) {
     $("#crawlLocation").empty();
 
     var weatherLocation;
-    
+
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + area + "&appid=26839131696992a3553a44f643a4f407";
 
     $.ajax({
@@ -70,3 +46,27 @@ function grabWeather(area) {
     });
 
 };
+
+
+/* Set the width of the side navigation to 400px */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "400px";
+    document.getElementById("main").style.marginLeft = "400px";
+    getDbSnapshot();
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    $("div").remove(".fav");
+}
+
+
+$("#closeSideBar").on("click", closeNav);
+$("#closeSideBar").addClass("closebtn glyphicon glyphicon-remove");
+
+
+$("#openSideBar").on("click", openNav);
+$("#openSideBar").addClass("glyphicon glyphicon-menu-hamburger myStyle");
+$("#openSideBar").text(" Menu");

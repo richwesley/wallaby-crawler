@@ -11,43 +11,43 @@
     <link rel="stylesheet" type="text/css" href="assets/Css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Alex+Brush|Ravi+Prakash|Calligraffitti|Droid+Sans|Macondo" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="assets/Css/aos.css" />
-   
 </head>
 
 <body>
     <div class="container myContainer">
-        <div id="mainHeader" class="page-header myHeader">
-            <h1> Beer Crawler <small></small></h1>
-            <div id="crawlLocation"></div>
-            <div id="weather"></div>
+        <div id="mySidenav" class="sidenav">
+            <a id="closeSideBar" class="sidebarTxtDisplay"></a>
         </div>
-        <div>
-            <label>Enter location city :</label>
-            <input id="searchItem" class="yourInput">
-            <!-- <button id="goBtn" class="goBtn">Go</button> -->
-        </div>
-        <div class="row">
-            <div class="col-xs-4" id="inputDiv">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <video autoplay loop class="embed-responsive-item" src="assets/images/beerPour.mp4"></video>
-                    <audio autoplay>
-                        <source src="assets/images/beer-pour.mp3">
-                    </audio>
-                </div>
-                <br>
+        <span id="openSideBar"></span>
+        <div id="main">
+            <div id="mainHeader" class="page-header myHeader">
+                <h1> Beer Crawler <small></small></h1>
+                <div id="crawlLocation"></div>
+                <div id="weather"></div>
             </div>
-            <div class="col-xs-8" id="map"></div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4" id="photo"></div>
-        </div>
-        <div class="row">
-            <div class="col-xs-3">
-                <div id="cardObject">
-                    
-
-
-
+            <div>
+                <label>Enter location city :</label>
+                <input id="searchItem" class="yourInput">
+            </div>
+            <div class="row">
+                <div class="col-xs-4" id="inputDiv">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video autoplay loop class="embed-responsive-item" src="assets/images/beerPour.mp4"></video>
+                        <audio autoplay>
+                            <source src="assets/images/beer-pour.mp3">
+                        </audio>
+                    </div>
+                    <br>
+                </div>
+                <div class="col-xs-8" id="map"></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4" id="photo"></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">
+                    <div id="cardObject">
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,13 +60,10 @@
 <script src="assets/Javascript/aos.js"></script>
 <script src="assets/Javascript/pubScript.js"></script>
 <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-
-
 <script>
 AOS.init({
     easing: 'ease-in-out-sine'
 });
 </script>
-
 
 </html>

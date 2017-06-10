@@ -10,7 +10,7 @@ function grabWeather(area) {
 
     var weatherLocation;
 
-    var queryURL = " https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?q=" + area + "&appid=26839131696992a3553a44f643a4f407";
+    var queryURL = "https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?q=" + area + "&appid=26839131696992a3553a44f643a4f407";
 
     $.ajax({
         url: queryURL,

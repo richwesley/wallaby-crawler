@@ -60,8 +60,9 @@ span {
 }
 
 .yourInput {
-    color: #000000;
-    width: 90%;
+	color: #000000;
+	width: 90%;
+	border: 3px inset #BC9420;
 }
 
 .goBtn {
@@ -118,9 +119,15 @@ span {
 }
 
 .sidebarTxtDisplay {
-    display: block;
+	display: block;
     /*padding: 8px 8px 8px 32px;*/
 }
+.fav {
+	margin-left: 55px;
+	border: 7px inset #AF8B22;
+	margin-right: 32px;
+}
+
 
 
 /* The navigation menu links */
@@ -157,6 +164,10 @@ span {
     transition: margin-left .5s;
     padding: 20px;
 }
+#mySidenav {
+
+}
+
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {

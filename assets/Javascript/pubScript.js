@@ -212,7 +212,7 @@ function createMarker(place) {
         placeId: place.place_id
       }, function (placeDetail) {
         console.log(placeDetail);
-		  $('#photo').append(placeDetail.name);
+		 
       });
 	});
 }

@@ -78,10 +78,7 @@ function initMap() {
             var service = new google.maps.places.PlacesService(map);
 
 
-            obj = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=pub&location=37.7930,-122.4161&radius=500&key=AIzaSyCpzcx4xPG0GtyMrFs83Mxa0Vm0V4TCyKo';
-
-            // console.log(obj);
-
+           
             function logResults(json) {
                 console.log(json);
             }

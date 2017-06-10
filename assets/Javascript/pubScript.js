@@ -1,9 +1,9 @@
 // JavaScript Document
 
-var infowindowContent;
-var searchArea;
+var infowindowContent,  service, pubid = [], pub_id, publicid;
+var searchArea; 
 
-// Initialize Firebase
+// Initialize Firebase 
 var config = {
     apiKey: "AIzaSyC7DimJBet8oIGYtumdS0ABdtUgE5QgFuU",
     authDomain: "beercrawler-d3099.firebaseapp.com",
@@ -74,25 +74,25 @@ function initMap() {
             map.setCenter(results[0].geometry.location);
 
 
-            var pubs = new google.maps.InfoWindow();
-            var service = new google.maps.places.PlacesService(map);
+         //   var pubs = new google.maps.InfoWindow();
+            service = new google.maps.places.PlacesService(map);
 
-			 obj = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=pub&location=37.7930,-122.4161&radius=500&key=AIzaSyCpzcx4xPG0GtyMrFs83Mxa0Vm0V4TCyKo';
-           
-            function logResults(json) {
-                console.log(json);
-            }
+//		//	 obj = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=pub&location=37.7930,-122.4161&radius=500&key=AIzaSyCpzcx4xPG0GtyMrFs83Mxa0Vm0V4TCyKo';
+//           
+//            function logResults(json) {
+//                console.log(json);
+//            }
+//
+//            $.ajax({
+//                method: "get",
+//                contentType: "application/json",
+//                url: obj,
+//                dataType: "jsonp",
+//                jsonpCallback: "logResults"
+//            });
 
-            $.ajax({
-                method: "get",
-                contentType: "application/json",
-                url: obj,
-                dataType: "jsonp",
-                jsonpCallback: "logResults"
-            });
 
-
-            bars = new google.maps.InfoWindow();
+        //    bars = new google.maps.InfoWindow();
             service = new google.maps.places.PlacesService(map);
 
             service.nearbySearch({
@@ -100,7 +100,7 @@ function initMap() {
                 radius: 500,
                 name: 'pub'
             }, callback);
-
+			console.log(pubid);
         });
     });
 }
@@ -166,17 +166,23 @@ function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
             var currentResult = results[i];
-
+			placeid(results[i]);
             createMarker(results[i]);
             createCard(currentResult);
             $("#searchItem").val('');
         }
     }
+	console.log(pubid);
 }
+function placeid (place) {
+	pub_id = place.id;
+	pubid.push(place.id);
+	}
 
 function createMarker(place) {
-    var id = place.id;
+    var pubs = new google.maps.InfoWindow();
     var marker = place.location;
+	 
     marker = new google.maps.Marker({
         map: map,
         position: place.geometry.location,
@@ -189,20 +195,26 @@ function createMarker(place) {
         title: place.name
     });
 
-    google.maps.event.addListener(marker, 'click', function() {
-        console.log(marker);
-
-        if (!pubs) { console.log(pubs) };
-        var pubs = new google.maps.InfoWindow();
-        // pubs.setContent(place.name);
-        pubs.setContent(this.title);
-        pubs.open(map, this);
-        console.log(this);
-        if (!pubs) { console.log(pubs) };
-        console.log(pubs);
+    google.maps.event.addListener(marker, 'mouseover', function() {
+        	pubs.setContent(place.id);
+//        if (!pubs) { console.log(pubs) };
+//        var pubs = new google.maps.InfoWindow();
+//        // pubs.setContent(place.name);
+//        pubs.setContent(this.title);
+//        pubs.open(map, this);
+//        console.log(this);
+//        if (!pubs) { console.log(pubs) };
+//        console.log(pubs);
     });
-
-    document.getElementById('#photo');
+	
+	google.maps.event.addListener(marker, 'click', function() {
+      service.getDetails({
+        placeId: place.place_id
+      }, function (placeDetail) {
+        console.log(placeDetail);
+		  $('#photo').append(placeDetail.name);
+      });
+	});
 }
 
 // getDbSnapshot populates sidebar with db favorites info

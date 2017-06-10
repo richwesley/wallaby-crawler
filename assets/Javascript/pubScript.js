@@ -107,6 +107,7 @@ function initMap() {
 
 
 function addFavoriteClick(event) {
+    closeNav();
     var childName = $(this).find("div.nameClass").text();
     var childArea = $(this).find("div.areaClass").text();
     var childRating = $(this).find("div.ratingClass").text();
@@ -240,3 +241,29 @@ function getDbSnapshot() {
 
 
 };
+
+
+/* Set the width of the side navigation to 400px */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "400px";
+    document.getElementById("main").style.marginLeft = "400px";
+    getDbSnapshot();
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    $("div").remove(".fav");
+    database.ref().off();
+}
+
+
+$("#closeSideBar").on("click", closeNav);
+$("#closeSideBar").addClass("closebtn glyphicon glyphicon-remove");
+
+
+$("#openSideBar").on("click", openNav);
+$("#openSideBar").addClass("glyphicon glyphicon-menu-hamburger myStyle");
+$("#openSideBar").text(" Menu");
+

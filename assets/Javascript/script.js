@@ -10,7 +10,9 @@ function grabWeather(area) {
 
     var weatherLocation;
 
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + area + "&appid=26839131696992a3553a44f643a4f407";
+
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + area + "&appid=26839131696992a3553a44f643a4f407";
+
 
     $.ajax({
         url: queryURL,
@@ -48,25 +50,3 @@ function grabWeather(area) {
 };
 
 
-/* Set the width of the side navigation to 400px */
-function openNav() {
-    document.getElementById("mySidenav").style.width = "400px";
-    document.getElementById("main").style.marginLeft = "400px";
-    getDbSnapshot();
-}
-
-/* Set the width of the side navigation to 0 */
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
-    $("div").remove(".fav");
-}
-
-
-$("#closeSideBar").on("click", closeNav);
-$("#closeSideBar").addClass("closebtn glyphicon glyphicon-remove");
-
-
-$("#openSideBar").on("click", openNav);
-$("#openSideBar").addClass("glyphicon glyphicon-menu-hamburger myStyle");
-$("#openSideBar").text(" Menu");

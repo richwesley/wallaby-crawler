@@ -1,7 +1,7 @@
 // JavaScript Document
 
 var infowindowContent,  service, pubid = [], pub_id, publicid;
-var searchArea; 
+var searchArea, photoUrl;
 
 // Initialize Firebase 
 var config = {
@@ -74,27 +74,9 @@ function initMap() {
             map.setCenter(results[0].geometry.location);
 
 
-         //   var pubs = new google.maps.InfoWindow();
+       
             service = new google.maps.places.PlacesService(map);
-
-//		//	 obj = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=pub&location=37.7930,-122.4161&radius=500&key=AIzaSyCpzcx4xPG0GtyMrFs83Mxa0Vm0V4TCyKo';
-//           
-//            function logResults(json) {
-//                console.log(json);
-//            }
-//
-//            $.ajax({
-//                method: "get",
-//                contentType: "application/json",
-//                url: obj,
-//                dataType: "jsonp",
-//                jsonpCallback: "logResults"
-//            });
-
-
-        //    bars = new google.maps.InfoWindow();
-            service = new google.maps.places.PlacesService(map);
-
+          
             service.nearbySearch({
                 location: results[0].geometry.location,
                 radius: 500,
@@ -121,7 +103,7 @@ function addFavoriteClick(event) {
 
 
 function createCard(result) {
-    var cardDiv = $("<div></div>");
+    var cardDiv = $("<div id ='cards'></div>");
     var infoDiv = $("<div class='cardStyle'></div>");
 
     // add results info 
@@ -137,9 +119,9 @@ function createCard(result) {
     }
 
     if (result.photos) {
-        var photoUrl = result.photos[0].getUrl({ maxWidth: 150, maxHeight: 120 });
+        photoUrl = result.photos[0].getUrl({ maxWidth: 150, maxHeight: 120 });
     } else {
-        var photoUrl = "assets/images/lilBeer.png";
+        photoUrl = "assets/images/lilBeer.png";
     }
 
     var photosDiv = $("<div><img src=" + photoUrl + " style='max-width:150px;max-height:120px;'></div>");
@@ -158,7 +140,7 @@ function createCard(result) {
     cardDiv.append(actionFrame);
     cardDiv.click(addFavoriteClick);
     $("#cardObject").append(cardDiv);
-};
+}
 
 
 function callback(results, status) {
@@ -198,14 +180,7 @@ function createMarker(place) {
 
     google.maps.event.addListener(marker, 'mouseover', function() {
         	pubs.setContent(place.id);
-//        if (!pubs) { console.log(pubs) };
-//        var pubs = new google.maps.InfoWindow();
-//        // pubs.setContent(place.name);
-//        pubs.setContent(this.title);
-//        pubs.open(map, this);
-//        console.log(this);
-//        if (!pubs) { console.log(pubs) };
-//        console.log(pubs);
+
     });
 	
 	google.maps.event.addListener(marker, 'click', function() {
@@ -240,7 +215,9 @@ function getDbSnapshot() {
     });
 
 
-};
+
+}
+
 
 
 /* Set the width of the side navigation to 400px */
@@ -266,4 +243,5 @@ $("#closeSideBar").addClass("closebtn glyphicon glyphicon-remove");
 $("#openSideBar").on("click", openNav);
 $("#openSideBar").addClass("glyphicon glyphicon-menu-hamburger myStyle");
 $("#openSideBar").text(" Menu");
+
 
